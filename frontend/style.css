@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* === Global Terminal Background === */
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top left, #000000, #050505 80%);
+  font-family: 'Share Tech Mono', monospace;
+  color: #00ff9c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-shadow: 0 0 6px #00ff9c;
+}
+
+/* Glitchy scanline overlay */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 156, 0.03) 0,
+    rgba(0, 255, 156, 0.03) 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  animation: flicker 0.12s infinite;
+  opacity: 0.7;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 0.7;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+  }
+}
+
+/* === Main Container === */
+.container {
+  position: relative;
+  z-index: 10;
+  width: 360px;
+  padding: 40px;
+  border: 2px solid #00ff9c;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 25px #00ff9c;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* === Titles === */
+.logo {
+  font-size: 30px;
+  color: #00ff9c;
+  letter-spacing: 2px;
+}
+.logo span {
+  color: #ff00e6;
+  text-shadow: 0 0 8px #ff00e6;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #ff00e6;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* === Inputs === */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  background: #050505;
+  border: 2px solid #00ff9c;
+  border-radius: 5px;
+  color: #00ff9c;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 0 10px #00ff9c;
+  transition: 0.3s ease;
+}
+input:focus {
+  border-color: #ff00e6;
+  box-shadow: 0 0 15px #ff00e6;
+  color: #ff00e6;
+}
+
+/* === Buttons === */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: black;
+  color: #00ff9c;
+  border: 2px solid #00ff9c;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+button:hover {
+  background: #00ff9c;
+  color: black;
+  box-shadow: 0 0 20px #00ff9c;
+}
+
+.logout {
+  border-color: #ff00e6;
+  color: #ff00e6;
+}
+.logout:hover {
+  background: #ff00e6;
+  color: black;
+  box-shadow: 0 0 20px #ff00e6;
+}
+
+/* === Links === */
+a {
+  color: #ff00e6;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 5px #ff00e6;
+}
+
+/* === Home Card === */
+.home-card {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #00ff9c;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 20px #00ff9c;
+  color: #00ff9c;
+}
+
+/* === Button Group === */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* === Responsive === */
+@media (max-width: 420px) {
+  .container {
+    width: 90%;
+    padding: 30px;
+  }
+  .logo {
+    font-size: 24px;
+  }
+}
